@@ -83,6 +83,7 @@ df_dados %>%
                                   color = "Taxa de Desocupação"),
                      size = 1)+
   scale_color_manual(values = c("#282f6b", "#b22200")) +
+  theme_bw() +
   labs(y = "Variação Percentual",x = "Ano", title = "Curva de Phillips", 
        subtitle = "Mar/2012 a Ago/22") +
   theme(plot.title = element_text(hjust = 0.5),
@@ -95,5 +96,9 @@ summary(modelo_phillips)
 #Gráfico de dispersão
 ggplot2::ggplot(df_dados, ggplot2::aes(x = desocupacao, y = ipca)) +
   ggplot2::geom_point()+
-  geom_smooth(method = 'lm')
-
+  geom_smooth(method = 'lm') +
+  theme_bw() +
+  labs(y = "IPCA",x = "Desocupacao", title = "Gráfico de Dispersão", 
+       subtitle = "Mar/2012 a Ago/22") +
+  theme(plot.title = element_text(hjust = 0.5),
+        plot.subtitle = element_text(hjust = 0.5))
